@@ -1,7 +1,7 @@
 # web-course-projects
 projects I did in web development course
 
-the is the final projectو which was a full stack whatsapp clone using go, vue, js, and postgres
+the is the final project, which was a full stack whatsapp clone using go, vue, js, and postgres
 
 
 
