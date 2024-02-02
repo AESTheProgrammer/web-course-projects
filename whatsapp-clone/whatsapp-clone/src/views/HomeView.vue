@@ -120,7 +120,6 @@ onMounted(async () => {
     }
 })
 
-
 const logout = () => {
     let res = confirm('Are you sute you want to logout?')
     if (res) { userStore.logout(); router.push('/signin') }

@@ -50,7 +50,11 @@ onMounted(async () => {
     contactID = people[1]
   }
   var contact = contacts.value.find(item => item.id === contactID)
-  contactName.value = contact.name
+  if (!contact) {
+      contactName.value = chat.value.username
+  } else {
+      contactName.value = contact.name
+  }
 })
 
 const isActive = computed(() => {

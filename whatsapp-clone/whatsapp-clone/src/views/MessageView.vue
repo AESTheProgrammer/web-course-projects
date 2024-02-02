@@ -141,16 +141,6 @@ watch(() => userDataForChat.value, (userData) => {
     }
 })
 
-// onMounted(async () => {
-//   let people = chat.value.people
-//   let contactID = people[0]
-//   if (people[0] == id.value) {
-//     contactID = people[1]
-//   }
-//   var contact = contacts.value.find(item => item.id === contactID)
-//   contactName.value = contact.name
-// })
-
 const deleteMessage = async (e, index) => {
     e.preventDefault();
     return
@@ -203,7 +193,11 @@ const getContactName = () => {
         contactID = people[1]
     }
     var contact = contacts.value.find(item => item.id === contactID)
-    contactName.value = contact.name
+    if (!contact) {
+        contactName.value = userDataForChat.value.firstname
+    } else {
+        contactName.value = contact.name
+    }
 }
 
 onUnmounted(async () => {

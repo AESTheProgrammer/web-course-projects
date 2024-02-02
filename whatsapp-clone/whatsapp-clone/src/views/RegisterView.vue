@@ -220,11 +220,12 @@ export default {
                 formData.append('image', this.image);
             }
             axios.post('api/register', formData)
-            .then(response => {
+            .then(async response => {
                 // console.log("new token is:", response)
                 localStorage.setItem('token', response.data.token)
                 const userStore = useUserStore()
-                userStore.getUserDetails(response.data.token, response.data.userid)
+                // userStore.getUserDetails(response.data.token, response.data.userid)
+                await userStore.setID(response.data.userid)
                 this.$router.push('/')
                 return response
             })

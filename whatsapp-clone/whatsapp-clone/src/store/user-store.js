@@ -32,6 +32,7 @@ export const useUserStore = defineStore('user', {
       this.isPartnerInfoVisible= false
       this.currentChat = null
       this.extensionInfo = {}
+      this.removeAllData()
       this.id = id
       try {
         let res = await axios.get(`api/users/${id}`, {
@@ -361,9 +362,7 @@ export const useUserStore = defineStore('user', {
       return "long time ago";
     },
 
-    
-    
-    logout() {
+    removeAllData() {
       this.id = -1
       this.image = null
       this.firstname = ''
@@ -381,6 +380,11 @@ export const useUserStore = defineStore('user', {
       this.isPartnerInfoVisible = false
       this.currentChat = null
       this.removeUsersFromFindFriends = []
+
+    },   
+    
+    logout() {
+      this.removeAllData()
       localStorage.removeItem('token')
     }
   },
